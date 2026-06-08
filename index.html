@@ -1,109 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Breadcrumb Navigation Example</title>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        background-color: #f4f4f4;
-    }
-
-    header {
-        background-color: #2c3e50;
-        color: white;
-        padding: 1rem 2rem;
-    }
-
-    nav.breadcrumb {
-        background-color: #ffffff;
-        padding: 12px 24px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    nav.breadcrumb ol {
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav.breadcrumb li {
-        display: flex;
-        align-items: center;
-    }
-
-    nav.breadcrumb li:not(:last-child)::after {
-        content: ">";
-        margin: 0 10px;
-        color: #888;
-    }
-
-    nav.breadcrumb a {
-        text-decoration: none;
-        color: #0077cc;
-    }
-
-    nav.breadcrumb a:hover {
-        text-decoration: underline;
-    }
-
-    nav.breadcrumb .current {
-        color: #555;
-        font-weight: bold;
-    }
-
-    main {
-        max-width: 800px;
-        margin: 30px auto;
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-        margin-top: 0;
-    }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartPark OU</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-    <h1>TechStore</h1>
-</header>
+  <input type="checkbox" id="menu-toggle" />
 
-<!-- Breadcrumb Navigation -->
-<nav class="breadcrumb" aria-label="Breadcrumb">
+  <header class="navbar">
+    <div class="logo">SmartPark OU</div>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#availability">Parking Lots</a>
+      <a href="#categories">Categories</a>
+      <a href="#walk-times">Walk Times</a>
+      <a href="#safety">Safety</a>
+      <a href="#map">Map</a>
+    </nav>
+
+    <label for="menu-toggle" class="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </header>
+
+  <aside class="sidebar">
+    <label for="menu-toggle" class="close-btn">Close</label>
+    <a href="#home">Home</a>
+    <a href="#availability">Parking Lots</a>
+    <a href="#categories">Categories</a>
+    <a href="#walk-times">Walk Times</a>
+    <a href="#safety">Safety</a>
+    <a href="#map">Map</a>
+  </aside>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
     <ol>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Laptops</a></li>
-        <li><span class="current">Gaming Laptop</span></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#availability">Parking</a></li>
+      <li><span class="current">SmartPark OU</span></li>
     </ol>
-</nav>
+  </nav>
 
-<main>
-    <h2>Gaming Laptop</h2>
+  <section class="hero" id="home">
+    <h1>Find Parking Faster at OU</h1>
+    <p>SmartPark helps students, staff, and visitors find parking before they get to campus.</p>
+    <a href="#availability" class="button">View Available Parking</a>
+  </section>
 
-    <p>
-        This page represents a product deep within the website hierarchy.
-        The breadcrumb trail shows users exactly where they are and allows
-        them to quickly navigate back to higher-level sections.
-    </p>
+  <main>
+    <section id="availability">
+      <h2 class="section-title">Live Parking Availability</h2>
 
-    <h3>Site Hierarchy</h3>
-    <ul>
-        <li>Home</li>
-        <li>Products</li>
-        <li>Laptops</li>
-        <li>Gaming Laptop (Current Page)</li>
-    </ul>
-</main>
+      <div class="parking-section">
+        <div class="card">
+          <h3>Lot A</h3>
+          <p class="available">Available</p>
+          <p>42 spots open</p>
+          <p>Type: Surface Lot</p>
+        </div>
 
+        <div class="card">
+          <h3>Lot B</h3>
+          <p class="limited">Limited</p>
+          <p>12 spots open</p>
+          <p>Type: Surface Lot</p>
+        </div>
+
+        <div class="card">
+          <h3>Parking Structure</h3>
+          <p class="available">Available</p>
+          <p>85 spots open</p>
+          <p>Type: Covered Structure</p>
+        </div>
+
+        <div class="card">
+          <h3>Lot C</h3>
+          <p class="full">Full</p>
+          <p>0 spots open</p>
+          <p>Type: Student Lot</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2 class="section-title">Parking Categories</h2>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="accessible">Accessible</button>
+        <button class="tab-btn" data-tab="staff">Faculty & Staff</button>
+        <button class="tab-btn" data-tab="visitor">Visitor</button>
+        <button class="tab-btn" data-tab="structures">Structures</button>
+      </div>
+
+      <div id="accessible" class="tab-content active">
+        <h3>Accessible Parking</h3>
+        <p>Shows disability parking spaces near main campus buildings.</p>
+        <p class="available">8 spaces open</p>
+      </div>
+
+      <div id="staff" class="tab-content">
+        <h3>Faculty & Staff</h3>
+        <p>Reserved parking areas for OU employees and professors.</p>
+        <p class="limited">15 spaces open</p>
+      </div>
+
+      <div id="visitor" class="tab-content">
+        <h3>Visitor Parking</h3>
+        <p>Parking options for guests, parents, and campus visitors.</p>
+        <p class="available">22 spaces open</p>
+      </div>
+
+      <div id="structures" class="tab-content">
+        <h3>Parking Structures</h3>
+        <p>Covered parking with protection from rain and snow.</p>
+        <p class="available">85 spaces open</p>
+      </div>
+    </section>
+
+    <section id="walk-times">
+      <h2 class="section-title">Estimated Walk Time</h2>
+
+      <div class="parking-section">
+        <div class="card wide-card">
+          <h3>Choose Destination</h3>
+          <select>
+            <option>Engineering Center</option>
+            <option>Oakland Center</option>
+            <option>Kresge Library</option>
+            <option>Dodge Hall</option>
+            <option>South Foundation Hall</option>
+          </select>
+          <p><strong>Recommended Parking:</strong> Lot A</p>
+          <p><strong>Estimated Walk:</strong> 4 minutes</p>
+        </div>
+
+        <div class="card">
+          <h3>Lot A</h3>
+          <p>To Engineering Center</p>
+          <p><strong>4 min walk</strong></p>
+        </div>
+
+        <div class="card">
+          <h3>Lot B</h3>
+          <p>To Oakland Center</p>
+          <p><strong>6 min walk</strong></p>
+        </div>
+
+        <div class="card">
+          <h3>Structure</h3>
+          <p>To Kresge Library</p>
+          <p><strong>7 min walk</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety">
+      <h2 class="section-title">Campus Safety Features</h2>
+
+      <div class="parking-section">
+        <div class="card">
+          <h3>Emergency Phones</h3>
+          <p>Find nearby emergency call stations in parking areas.</p>
+        </div>
+
+        <div class="card">
+          <h3>Well-Lit Areas</h3>
+          <p>Shows lots with better lighting for nighttime parking.</p>
+        </div>
+
+        <div class="card">
+          <h3>Security Patrols</h3>
+          <p>Displays monitored parking zones around campus.</p>
+        </div>
+
+        <div class="card">
+          <h3>Safety Alerts</h3>
+          <p>Updates for closed lots, construction, or campus alerts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="map" class="map-section">
+      <h2 class="section-title">Campus Parking Map</h2>
+      <p>This section can be updated later with a real campus map or image.</p>
+      <div class="map-placeholder">OU Parking Map Placeholder</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>SmartPark OU | Campus Parking Made Easier</p>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(btn => btn.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
